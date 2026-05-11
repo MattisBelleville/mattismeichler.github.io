@@ -3,159 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mattis Meichler — Journalist</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>Mattis Meichler — Tech Journalist</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black: #0a0a0a;
-    --white: #f5f4f0;
-    --accent: #e8ff3c;
-    --gray: #888;
-    --border: #222;
+    --bg: #050505;
+    --card-bg: #0d0d0d;
+    --text: #f0f0f0;
+    --accent: #e8ff3c; /* Jaune Tech */
+    --gray: #999;
+    --border: #1a1a1a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     overflow-x: hidden;
   }
 
+  /* HEADER TECH */
   header {
-    padding: 48px 60px 40px;
+    padding: 60px 5% 40px;
     border-bottom: 1px solid var(--border);
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
   }
 
-  .name-block h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 8vw, 100px);
-    line-height: 0.9;
-    letter-spacing: 2px;
-    color: var(--white);
+  .title-area h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 8vw, 70px);
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
   }
 
-  .name-block h1 span { color: var(--accent); }
+  .title-area h1 span { color: var(--accent); }
 
-  .header-meta { text-align: right; max-width: 300px; }
-  .header-meta p { font-size: 14px; color: var(--gray); margin-bottom: 16px; }
-  .header-meta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); font-size: 13px; }
+  .bio {
+    max-width: 450px;
+    text-align: right;
+  }
 
-  .ticker {
+  .bio p {
+    font-size: 16px;
+    color: var(--text);
+    margin-bottom: 15px;
+    font-weight: 300;
+  }
+
+  .bio .tags {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* TICKER ANIMÉ */
+  .ticker-wrap {
+    background: var(--accent);
+    padding: 10px 0;
     border-bottom: 1px solid var(--border);
     overflow: hidden;
-    padding: 10px 0;
-    background: var(--accent);
   }
 
-  .ticker-inner {
+  .ticker {
     display: flex;
-    gap: 80px;
-    animation: ticker 20s linear infinite;
     white-space: nowrap;
+    animation: scroll 25s linear infinite;
   }
 
-  .ticker-inner span {
-    font-family: 'Bebas Neue', sans-serif;
+  .ticker span {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--bg);
+    font-weight: 700;
     font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--black);
+    text-transform: uppercase;
+    padding-right: 60px;
   }
 
-  @keyframes ticker {
+  @keyframes scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
+  /* GRILLE DES ARTICLES */
   main {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    min-height: calc(100vh - 200px);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    width: 100%;
+    border-bottom: 1px solid var(--border);
   }
 
   section {
+    padding: 40px;
     border-right: 1px solid var(--border);
-    padding: 48px 40px;
-  }
-
-  .section-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--gray);
-    margin-bottom: 32px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-  .outlet-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--white);
-    margin-bottom: 24px;
-  }
-
-  .article-link {
-    display: block;
-    padding: 18px 0;
     border-bottom: 1px solid var(--border);
-    text-decoration: none;
-    color: var(--white);
-    font-size: 14px;
-    transition: all 0.25s ease;
+    transition: background 0.3s ease;
   }
 
-  .article-link:hover { color: var(--accent); padding-left: 10px; }
+  section:hover { background: var(--card-bg); }
 
-  footer {
+  .label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .outlet {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-left: 3px solid var(--accent);
+    padding-left: 15px;
+  }
+
+  .article-list { display: flex; flex-direction: column; }
+
+  .article-item {
+    padding: 15px 0;
     border-top: 1px solid var(--border);
-    padding: 24px 60px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 400;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+  }
+
+  .article-item:hover { color: var(--accent); padding-left: 10px; }
+
+  .article-item::after {
+    content: '→';
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 12px;
     color: var(--gray);
   }
 
-  @media (max-width: 900px) {
-    header { flex-direction: column; align-items: flex-start; padding: 32px; }
-    main { grid-template-columns: 1fr; }
-    section { border-right: none; border-bottom: 1px solid var(--border); }
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header { flex-direction: column; padding: 40px 20px; }
+    .bio { text-align: left; }
+    section { padding: 30px 20px; border-right: none; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="name-block">
+  <div class="title-area">
     <h1>Mattis<br><span>Meichler</span></h1>
   </div>
-  <div class="header-meta">
-    <p>Tech journalist covering AI, robotics, and crypto. Specialist in humanoid robotics at Journal du Net.</p>
-    <a href="https://twitter.com/mattis_urs" target="_blank">@mattis_urs on X</a>
+  <div class="bio">
+    <p>Tech journalist covering AI, robotics, and crypto. Currently contributing to Journal du Net, CoinShares, and Paiement.fr.</p>
+    <div class="tags">Journalist Portfolio 2024</div>
   </div>
 </header>
 
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>AI & ROBOTICS · CRYPTO & FINANCE · AGENTIC COMMERCE · HUMANOID ROBOTS · TECH JOURNALISM · AI & ROBOTICS · CRYPTO & FINANCE · AGENTIC COMMERCE · HUMANOID ROBOTS · TECH JOURNALISM · </span>
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>AI & ROBOTICS</span><span>•</span><span>CRYPTO ASSETS</span><span>•</span><span>HUMANOID TECH</span><span>•</span><span>WEB3 FINANCE</span><span>•</span><span>AGENTIC COMMERCE</span><span>•</span>
+    <span>AI & ROBOTICS</span><span>•</span><span>CRYPTO ASSETS</span><span>•</span><span>HUMANOID TECH</span><span>•</span><span>WEB3 FINANCE</span><span>•</span><span>AGENTIC COMMERCE</span><span>•</span>
   </div>
 </div>
 
 <main>
   <section>
-    <div class="section-label">01 — AI & ROBOTICS</div>
-    <div class="outlet-name">Journal du Net</div>
-    <div class="articles">
-      <a class="article-link" href="https://www.journaldunet.com/intelligence-artificielle/1549945-les-world-models-vont-ils-bientot-creer-le-moment-chatgpt-de-la-robotique/" target="_blank">Les World Models vont-ils créer le moment "ChatGPT" de la robotique ?</a>
-      <a class="article-link" href="https://www.journaldunet.com/intelligence-artificielle/1549839-renault-produira-les-robots-humanoides-de-wandercraft-a-echelle-industrielle/" target="_blank">ITW Matthieu Masselin, CEO Wandercraft</a>
-      <a class="article-link" href="
+    <span class="label">01 / AI & ROBOTICS</span>
+    <div class="outlet">Journal du Net</div>
+    <div class="article-list">
+      <a href="https://www.journaldunet.com/intelligence-artificielle/1549945-les-world-models-vont-ils-bientot-creer-le-moment-chatgpt-de-la-robotique/" class="article-item" target="_blank">Les World Models vont-ils créer le moment “ChatGPT” de la robotique ?</a>
+      <a href="https://www.journaldunet.com/intelligence-artificielle/1549839-renault-produira-les-robots-humanoides-de-wandercraft-a-echelle-industrielle/" class="article-item" target="_blank">ITW Matthieu Masselin, CEO Wandercraft</a>
+      <a href="https://www.journaldunet.com/intelligence-artificielle/1549855-robots-humanoides-la-strategie-multi-fronts-de-la-chine-pour-s-imposer/" class="article-item" target="_blank">Robots humanoïdes : la stratégie multi-fronts de la Chine</a>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">02 / FINTECH</span>
+    <div class="outlet">Paiement.fr</div>
+    <div class="article-list">
+      <a href="https://www.paiement.fr/p/stripe-accelere-sur-le-commerce-agentique-et-lance-capital-en-france" class="article-item" target="_blank">Stripe accélère sur le commerce agentique & Capital for Platforms</a>
+      <a href="https://www.paiement.fr/p/ghali-bennani-laafiret-ralio-nous-remettons-les-agents-ia-sur-les-rails" class="article-item" target="_blank">Ghali Bennani Laafiret (Ralio) : ITW Agents IA</a>
+      <a href="https://www.paiement.fr/p/nous-entrons-dans-l-e-poque-du-commerce-3-0-mirakl-nexus" class="article-item" target="_blank">Mirakl : “L’ère du commerce 3.0”</a>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">03 / WEB3</span>
+    <div class="outlet">CoinShares</div>
+    <div class="article-list">
+      <a href="https://coinshares.com/fr/insights/knowledge/10-years-of-ethereum-the-story/" class="article-item" target="_blank">10 years of Ethereum - The Story</a>
+      <a href="https://coinshares.com/us/insights/knowledge/what-is-hyperliquid-and-why-does-it-matter/" class="article-item" target="_blank">What is Hyperliquid and why does it matter?</a>
+      <a href="https://coinshares.com/es-en/insights/knowledge/bitcoin-mining-lost-cause-or-lottery/" class="article-item" target="_blank">Bitcoin: Home mining - Lost cause or lottery?</a>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">04 / NEWS</span>
+    <div class="outlet">Decrypt</div>
+    <div class="article-list">
+      <a href="https://decrypt.co/198573/amazon-invest-4b-ai-firm-anthropic" class="article-item" target="_blank">Amazon to Invest $4 Billion in Anthropic</a>
+      <a href="https://decrypt.co/208340/data-painter-refik-anadol-reflects-historic-moma-ai-art-acquisition" class="article-item" target="_blank">Refik Anadol & Historic MoMA AI Art Acquisition</a>
+      <a href="https://decrypt.co/199332/get-paid-train-ai-theres-new-cryptocurrency-that" class="article-item" target="_blank">Get Paid to Train AI? New Cryptocurrency</a>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">05 / BROADCAST</span>
+    <div class="outlet">Video ITW</div>
+    <div class="article-list">
+      <a href="https://www.facebook.com/neotvofficiel/videos/557148849115880/" class="article-item" target="_blank">Tout savoir sur les NFT, avec Mattis Meichler (NEO Media)</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2024 Mattis Meichler</p>
+  <p><a href="https://twitter.com/mattis_urs" target="_blank" style="color:var(--accent); text-decoration:none;">Connect on X</a></p>
+</footer>
+
+</body>
+</html>
