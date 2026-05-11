@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mattis Meichler — Journalist</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f4f0;
+    --accent: #e8ff3c;
+    --gray: #888;
+    --border: #222;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 48px 60px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .name-block h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 100px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .name-block h1 span {
+    color: var(--accent);
+  }
+
+  .header-meta {
+    text-align: right;
+    max-width: 300px;
+  }
+
+  .header-meta p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .header-meta a {
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .header-meta a:hover { opacity: 0.6; }
+
+  /* TICKER */
+  .ticker {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+    padding: 10px 0;
+    background: var(--accent);
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 80px;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-inner span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* MAIN LAYOUT */
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    min-height: calc(100vh - 200px);
+  }
+
+  /* SECTION */
+  section {
+    border-right: 1px solid var(--border);
+    padding: 48px 40px;
+    animation: fadeUp 0.8s ease both;
+  }
+  section:last-child { border-right: none; }
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.3s; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gray);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .outlet-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .article-link {
+    display: block;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 400;
+    transition: all 0.25s ease;
+    position: relative;
+    padding-left: 0;
+  }
+
+  .article-link::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    color: var(--accent);
+    transition: all 0.25s ease;
+    font-size: 12px;
+  }
+
+  .article-link:hover {
+    color: var(--accent);
+    padding-left: 20px;
+  }
+
+  .article-link:hover::before {
+    opacity: 1;
+    left: 0;
+  }
+
+  .article-link:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  /* VIDEO SECTION */
+  .video-block {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .video-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gray);
+    margin-bottom: 16px;
+  }
+
+  .video-item {
+    display: block;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.45;
+    transition: color 0.25s;
+  }
+  .video-item:hover { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 1px;
+  }
+
+  footer a {
+    font-size: 12px;
+    color: var(--gray);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--accent); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    header { padding: 32px; flex-direction: column; align-items: flex-start; }
+    .header-meta { text-align: left; max-width: 100%; }
+    main { grid-template-columns: 1fr 1fr; }
+    section { border-right: none; border-bottom: 1px solid var(--border); padding: 32px; }
+    footer { padding: 24px 32px; flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="name-block">
+    <h1>Mattis<br><span>Meichler</span></h1>
+  </div>
+  <div class="header-meta">
+    <p>Tech journalist covering AI, robotics, and crypto. Specialist in humanoid robotics at Journal du Net.</p>
+    <a href="https://twitter.com/mattis_urs" target="_blank">@mattis_urs on X</a>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>AI & ROBOTICS</span>
+    <span>·</span>
+    <span>CRYPTO & FINANCE</span>
+    <span>·</span>
+    <span>AGENTIC COMMERCE</span>
+    <span>·</span>
+    <span>HUMANOID ROBOTS</span>
+    <span>·</span>
+    <span>TECH JOURNALISM</span>
+    <span>·</span>
+    <span>AI & ROBOTICS</span>
+    <span>·</span>
+    <span>CRYPTO & FINANCE</span>
+    <span>·</span>
+    <span>AGENTIC COMMERCE</span>
+    <span>·</span>
+    <span>HUMANOID ROBOTS</span>
+    <span>·</span>
+    <span>TECH JOURNALISM</span>
+    <span>·</span>
+  </div>
+</div>
+
+<main>
+
+  <section>
+    <div class="section-label">01 — AI & ROBOTICS</div>
+    <div class="outlet-name">Journal du Net</div>
+    <div class="articles">
+      <a class="article-link" href="https://www.journaldunet.com/intelligence-artificielle/1549945-les-world-models-vont-ils-bientot-creer-le-moment-chatgpt-de-la-robotique/" target="_blank">
+        Les World Models vont-ils créer le moment "ChatGPT" de la robotique ?
+      </a>
+      <a class="article-link" href="https://www.journaldunet.com/intelligence-artificielle/1549839-renault-produira-les-robots-humanoides-de-wandercraft-a-echelle-industrielle/" target="_blank">
+        ITW Matthieu Masselin, CEO Wandercraft
+      </a>
+      <a class="article-link" href="https://www.journaldunet.com/intelligence-artificielle/1549855-robots-humanoides-la-strategie-multi-fronts-de-la-chine-pour-s-imposer/" target="_blank">
+        Robots humanoïdes : la stratégie multi-fronts de la Chine pour s'imposer
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">02 — AGENTIC & PAYMENTS</div>
+    <div class="outlet-name">Paiement.fr</div>
+    <div class="articles">
+      <a class="article-link" href="https://www.paiement.fr/p/stripe-accelere-sur-le-commerce-agentique-et-lance-capital-en-france" target="_blank">
+        Stripe accélère sur le commerce agentique et lance Capital for Platforms en France
+      </a>
+      <a class="article-link" href="https://www.paiement.fr/p/ghali-bennani-laafiret-ralio-nous-remettons-les-agents-ia-sur-les-rails" target="_blank">
+        Ghali Bennani Laafiret (Ralio) : "Nous remettons les agents IA sur les rails"
+      </a>
+      <a class="article-link" href="https://www.paiement.fr/p/nous-entrons-dans-l-e-poque-du-commerce-3-0-mirakl-nexus" target="_blank">
+        Mirakl : "Nous entrons dans l'ère du commerce 3.0"
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">03 — CRYPTO & WEB3</div>
+    <div class="outlet-name">CoinShares</div>
+    <div class="articles">
+      <a class="article-link" href="https://coinshares.com/fr/insights/knowledge/10-years-of-ethereum-the-story/" target="_blank">
+        10 Years of Ethereum — The Story
+      </a>
+      <a class="article-link" href="https://coinshares.com/us/insights/knowledge/what-is-hyperliquid-and-why-does-it-matter/" target="_blank">
+        What is Hyperliquid and why does it matter?
+      </a>
+      <a class="article-link" href="https://coinshares.com/es-en/insights/knowledge/bitcoin-mining-lost-cause-or-lottery/" target="_blank">
+        Bitcoin: Home mining — Lost cause or lottery?
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">04 — DECRYPT</div>
+    <div class="outlet-name">Decrypt</div>
+    <div class="articles">
+      <a class="article-link" href="https://decrypt.co/198573/amazon-invest-4b-ai-firm-anthropic" target="_blank">
+        Amazon to Invest up to $4 Billion in AI Firm Anthropic
+      </a>
+      <a class="article-link" href="https://decrypt.co/208340/data-painter-refik-anadol-reflects-historic-moma-ai-art-acquisition" target="_blank">
+        Refik Anadol Reflects on Historic MoMA AI Art Acquisition
+      </a>
+      <a class="article-link" href="https://decrypt.co/199332/get-paid-train-ai-theres-new-cryptocurrency-that" target="_blank">
+        Get Paid to Train AI? There's a New Cryptocurrency for That
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">05 — VIDEO</div>
+    <div class="outlet-name">NEO Media</div>
+    <div class="articles">
+      <a class="article-link" href="https://www.facebook.com/neotvofficiel/videos/557148849115880/" target="_blank">
+        Tout savoir sur les NFT avec Mattis Meichler
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Mattis Meichler — Journalist Portfolio</p>
+  <a href="https://twitter.com/mattis_urs" target="_blank">@mattis_urs</a>
+</footer>
+
+</body>
+</html>
